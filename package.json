@@ -1,0 +1,32 @@
+{
+  "name": "grunt-contrib-jsontl",
+  "version": "0.1.0",
+  "description": "Grunt task for performing jsontl transforms",
+  "main": "tasks/jsontl.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/DoublePrecisionSoftware/grunt-contrib-jsontl.git"
+  },
+  "keywords": [
+    "grunt",
+    "grunt-contrib",
+    "gruntplugin",
+    "jsontl"
+  ],
+  "author": "Stephen Collins <wtfsven@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DoublePrecisionSoftware/grunt-contrib-jsontl/issues"
+  },
+  "homepage": "https://github.com/DoublePrecisionSoftware/grunt-contrib-jsontl",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-internal": "^0.4.12",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.2.1"
+  }
+}
