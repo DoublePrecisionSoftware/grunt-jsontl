@@ -13,24 +13,25 @@ var jsontl = require('jsontl');
 
 module.exports = function(grunt) {
 
-	function transform(path, options) {
-		if (!grunt.file.exists(path)){
-			return false;
-		}
-
-	}
-
-
 	grunt.registerMultiTask('jsontl', 'Performing jsontl transformations', function() {
 
 		var result,
 				data,
-				transform;
+				transform,
+				createdFiles = 0;
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-			prettyPrint: grunt.option('prettyPrint')
+			prettyPrint: grunt.option('prettyPrint') === true
     });
+
+		if (!(this.data.transform && grunt.file.exists(this.data.transform))){
+			grunt.fail.warn('Must provide a valid path to transform file.');
+		}
+
+		// get transform
+		grunt.verbose.writeln('Found transform at ' + chalk.cyan(this.data.transform));
+		transform = grunt.file.readJSON(this.data.transform);
 
     // Transform specified files.
 		this.files.forEach(function (f) {
@@ -50,9 +51,11 @@ module.exports = function(grunt) {
       }
 
 			try {
+				grunt.verbose.writeln('Found data at ' + chalk.cyan(src));
 				data = grunt.file.readJSON(src);
-				transform = grunt.file.readJSON(this.transform);
-        result = jsontl.transform(data, transform);
+
+				grunt.verbose.writeln('Executing transform...');
+				result = jsontl.transform(data, transform);
       } catch (e) {
         console.log(e);
         var err = new Error('Transform failed.');
@@ -67,11 +70,12 @@ module.exports = function(grunt) {
         grunt.fail.warn(err);
       }
 
-			grunt.file.write(f.dest, result);
+			grunt.verbose.writeln('writing transformed data at ' + chalk.cyan(f.dest));
+			grunt.file.write(f.dest, JSON.stringify(result, undefined, options.prettyPrint ? 4 : undefined));
 
 			grunt.verbose.writeln('File ' + chalk.cyan(f.dest) + ' created');
       createdFiles++;
 		});
-    grunt.log.ok(this.filesSrc.length  + ' ' + grunt.util.pluralize(this.filesSrc.length, 'path/paths') + ' cleaned.');
+    grunt.log.ok(this.filesSrc.length  + ' ' + grunt.util.pluralize(this.filesSrc.length, 'file/files') + ' created.');
   });
 };
