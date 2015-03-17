@@ -1,30 +1,28 @@
-/* Unit tests for jsont */
+/* jshint mocha: true */
 
 var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
-var exec = require('child_process').exec;
-var execOptions = {
-		cwd: path.join(__dirname, '..')
-	};
 
 describe('Task', function () {
-	var data;
-	before(function(done) {
+	var testData;
+	before(function (done) {
 
-		exec('grunt test', execOptions, function(error, stdout) {
-			fs.readFile('tmp/data_new.json', function(err, data) {
-				data = JSON.parse(data);
+		fs.readFile(path.join(__dirname, 'tmp/data.new.json'), function (err, data) {
+			if (err) {
+				assert.ifError(err);
 				done();
-			});
+			}
+
+			testData = JSON.parse(data);
+
+			assert(testData, 'transform not executed');
+
+			done();
 		});
 	});
 
-	it('should create data_new.json file', function(){
-		assert(data);
-	});
-
-	it('should have performed transforms', function() {
-		assert.equal(data.Value, "Two");
+	it('should have performed transforms', function () {
+		assert.equal(testData.Value, "Two");
 	});
 });
