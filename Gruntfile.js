@@ -9,7 +9,10 @@ module.exports = function(grunt) {
     jsontl: {
       src: ['test/tmp/data_old.json'],
       dest: ['test/tmp/data_new.json'],
-      transform: 'test/tmp/transform.jsontl'
+      transform: 'test/tmp/transform.jsontl',
+			options: {
+				prettyPrint: true
+			}
     },
 
     // Unit tests.
@@ -17,6 +20,9 @@ module.exports = function(grunt) {
       src: ['test/test.js'],
     },
 
+		clean: {
+			src: ['test/tmp/']
+		}
   });
 
   // Actually load this plugin's task(s).
