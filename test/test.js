@@ -2,6 +2,7 @@
 
 var assert = require('assert');
 var fs = require('fs');
+var path = require('path');
 var exec = require('child_process').exec;
 var execOptions = {
 		cwd: path.join(__dirname, '..')
@@ -11,7 +12,7 @@ describe('Task', function () {
 	var data;
 	before(function(done) {
 
-		exec('grunt jsontl', execOptions, function(error, stdout) {
+		exec('grunt test', execOptions, function(error, stdout) {
 			fs.readFile('tmp/data_new.json', function(err, data) {
 				data = JSON.parse(data);
 				done();
