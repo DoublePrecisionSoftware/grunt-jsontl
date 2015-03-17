@@ -1,2 +1,4 @@
 /test/
 LICENSE
+gruntfile.js
+.jshintrc
