@@ -19,6 +19,7 @@
     "grunt",
     "grunt-contrib",
     "gruntplugin",
+		"json",
     "jsontl"
   ],
 	"author": "Stephen Collins <wtfsven@live.com>",
