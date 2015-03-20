@@ -1,4 +1,4 @@
-grunt-contrib-jsontl
+grunt-jsontl
 ====================
 
 Grunt task for performing [jsontl](http://github.com/DoublePrecisionSoftware/jsontl) transforms
