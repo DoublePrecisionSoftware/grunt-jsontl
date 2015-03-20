@@ -1,5 +1,5 @@
 {
-	"name": "grunt-contrib-jsontl",
+	"name": "grunt-jsontl",
 	"version": "0.1.1",
 	"description": "Grunt task for performing jsontl transforms",
 	"files": [
@@ -13,7 +13,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/DoublePrecisionSoftware/grunt-contrib-jsontl.git"
+		"url": "http://github.com/DoublePrecisionSoftware/grunt-jsontl.git"
 	},
 	"keywords": [
     "grunt",
@@ -25,9 +25,9 @@
 	"author": "Stephen Collins <wtfsven@live.com>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/DoublePrecisionSoftware/grunt-contrib-jsontl/issues"
+		"url": "https://github.com/DoublePrecisionSoftware/grunt-jsontl/issues"
 	},
-	"homepage": "https://github.com/DoublePrecisionSoftware/grunt-contrib-jsontl",
+	"homepage": "https://github.com/DoublePrecisionSoftware/grunt-jsontl",
 	"dependencies": {
 		"jsontl": "^0.1.2",
 		"chalk": "^1.0.0"
