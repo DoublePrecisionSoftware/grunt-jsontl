@@ -17,7 +17,6 @@
 	},
 	"keywords": [
     "grunt",
-    "grunt-contrib",
     "gruntplugin",
 		"json",
     "jsontl"
