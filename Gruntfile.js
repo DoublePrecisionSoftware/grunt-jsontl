@@ -8,13 +8,9 @@ module.exports = function (grunt) {
 		// Configuration to be run (and then tested).
 		jsontl: {
 			test: {
-				files: [{
-					expand: true,
-					src: ['data.old.json'],
-					dest: 'test/tmp',
-					cwd: 'test/tmp',
-					ext: '.new.json'
-				}],
+				files: {
+					'test/tmp/data.new.json': ['test/tmp/data.old.json']
+				},
 				transform: 'test/tmp/transform.jsontl',
 				options: {
 					prettyPrint: true
@@ -51,7 +47,7 @@ module.exports = function (grunt) {
 
 	// Whenever the 'test' task is run, first create some files to be transformed,
 	// then run this plugin's task(s), then test the result.
-	grunt.registerTask('test', ['copy', 'jsontl', 'mochaTest', 'clean']);
+	grunt.registerTask('test', ['clean', 'copy', 'jsontl', 'mochaTest', 'clean']);
 
 	// By default, run tranform, but don't clean up.
 	grunt.registerTask('default', ['copy', 'jsontl', 'mochaTest']);
