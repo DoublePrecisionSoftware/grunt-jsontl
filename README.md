@@ -21,14 +21,14 @@ grunt.loadNpmTasks('grunt-jsontl');
 ## jsontl task
 _Run this task with the `grunt jsontl` command._
 
-Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide, with one notable exception.  In order to prevent ovewriting of files, the `expand` syntax is required.
+Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide, with one notable exception.
 
 ```javascript
 jsontl: {
 	dev: {
 		files: [{
 			expand: true,
-			src: ['data.old.json'],
+			src: ['*.json'],
 			dest: 'my/dir',
 			cwd: 'my/dir',
 			ext: '.new.json'
