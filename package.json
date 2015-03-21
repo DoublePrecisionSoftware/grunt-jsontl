@@ -26,7 +26,7 @@
 	"bugs": {
 		"url": "https://github.com/DoublePrecisionSoftware/grunt-jsontl/issues"
 	},
-	"homepage": "https://github.com/DoublePrecisionSoftware/grunt-jsontl",
+	"homepage": "http://doubleprecisionsoftware.github.io/jsontl/",
 	"dependencies": {
 		"jsontl": "^0.1.2",
 		"chalk": "^1.0.0"
